@@ -1,26 +1,31 @@
 ---
 layout: archive
-title: "Publications"
+title: "Publications & Talks"
 permalink: /publications/
 author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">
+    You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.
+  </div>
 {% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<!-- Journal Articles Section -->
+<h2>Journal Articles</h2>
+<hr />
+
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
+  {% for category in site.publication_category %}
     {% assign title_shown = false %}
     {% for post in site.publications reversed %}
       {% if post.category != category[0] %}
         {% continue %}
       {% endif %}
       {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
+        <h3>{{ category[1].title }}</h3>
         {% assign title_shown = true %}
       {% endunless %}
       {% include archive-single.html %}
@@ -32,5 +37,14 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
+<!-- Conference Presentations & Talks Section -->
+<h2>Conference Presentations & Talks</h2>
+<hr />
 
+{% for talk in site.talks reversed %}
+  {% include archive-single.html talk=talk %}
+{% endfor %}
 
+<div class="wordwrap">
+  For a detailed list of my work, please feel free to consult my <a href="/files/cv.pdf">full CV PDF</a>.
+</div>
