@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amir-Homayun Hallajian | Computational Cognitive Scientist</title>
+  <meta name="description" content="Computational cognitive scientist building machine-learning and statistical tools for complex human behaviour, with applications in neuroscience, clinical research, and applied machine learning.">
+  <meta name="author" content="Amir-Homayun Hallajian">
+  <meta property="og:title" content="Amir-Homayun Hallajian | Computational Cognitive Scientist">
+  <meta property="og:description" content="Computational models and data systems for understanding complex human behaviour.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://AmirHomayunHallajian.github.io">
+  <meta name="theme-color" content="#16324f">
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --bg-soft: #fbf8f3;
+      --paper: rgba(255, 252, 247, 0.82);
+      --paper-strong: #fffdf8;
+      --ink: #16202a;
+      --muted: #5c6670;
+      --faint: #838b92;
+      --line: rgba(22, 32, 42, 0.12);
+      --line-strong: rgba(22, 32, 42, 0.2);
+      --accent: #2f6f73;
+      --accent-dark: #1f4e55;
+      --accent-soft: #e4eeee;
+      --copper: #a05a2c;
+      --navy: #16324f;
+      --shadow: 0 24px 70px rgba(22, 32, 42, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 999px;
+      --max: 1180px;
+      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(47, 111, 115, 0.13), transparent 34rem),
+        radial-gradient(circle at 88% 8%, rgba(160, 90, 44, 0.1), transparent 30rem),
+        linear-gradient(180deg, #f8f4ed 0%, #f6f2ec 38%, #fbf8f3 100%);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p, h1, h2, h3, h4 { margin-top: 0; }
+
+    .site-shell {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(246, 242, 236, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      color: var(--accent-dark);
+      background: rgba(255, 255, 255, 0.42);
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing: -0.06em;
+    }
+
+    .brand-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      display: block;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.87rem;
+      font-weight: 650;
+      padding: 8px 11px;
+      border-radius: var(--radius-sm);
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(47, 111, 115, 0.09);
+      color: var(--accent-dark);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px 72px;
+    }
+
+    .hero {
+      padding: clamp(72px, 9vw, 122px) 0 54px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(290px, 0.75fr);
+      gap: clamp(34px, 7vw, 82px);
+      align-items: end;
+    }
+
+    .role-line {
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .name-mark {
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 9vw, 8.1rem);
+      line-height: 0.86;
+      letter-spacing: -0.075em;
+      font-weight: 650;
+      margin-bottom: 26px;
+      max-width: 900px;
+    }
+
+    .name-mark .em {
+      color: var(--accent-dark);
+      font-style: italic;
+      letter-spacing: -0.085em;
+    }
+
+    .positioning {
+      max-width: 850px;
+      font-size: clamp(1.34rem, 2.15vw, 2.05rem);
+      line-height: 1.22;
+      letter-spacing: -0.035em;
+      color: #1a2732;
+      margin-bottom: 24px;
+      font-weight: 660;
+    }
+
+    .accent-word {
+      color: var(--accent-dark);
+      white-space: nowrap;
+    }
+
+    .lede {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.35vw, 1.17rem);
+      line-height: 1.75;
+      margin-bottom: 30px;
+    }
+
+    .cta-row,
+    .secondary-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cta-row { margin-bottom: 18px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 1px solid var(--line-strong);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #fffdf8;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      box-shadow: 0 16px 34px rgba(31, 78, 85, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: #173c42;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.48);
+      color: var(--accent-dark);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(47, 111, 115, 0.42);
+      background: rgba(228, 238, 238, 0.72);
+    }
+
+    .secondary-links a {
+      color: var(--muted);
+      border-bottom: 1px solid rgba(92, 102, 112, 0.25);
+      font-size: 0.92rem;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .secondary-links a:hover {
+      color: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .arrow {
+      display: inline-block;
+      transform: translateY(-0.02em);
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255, 253, 248, 0.85), rgba(255, 253, 248, 0.58));
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 0%, rgba(47, 111, 115, 0.18), transparent 44%);
+      pointer-events: none;
+    }
+
+    .hero-card > * { position: relative; }
+
+    .card-kicker {
+      color: var(--accent-dark);
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 850;
+      margin-bottom: 18px;
+    }
+
+    .identity-list {
+      display: grid;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .identity-list li {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .identity-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .identity-list strong {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.28;
+      margin-bottom: 5px;
+      letter-spacing: -0.015em;
+    }
+
+    .identity-list span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .section {
+      padding: clamp(54px, 7vw, 88px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+      gap: clamp(22px, 4vw, 64px);
+      margin-bottom: 34px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    .section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      font-weight: 650;
+      margin-bottom: 0;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.25vw, 1.12rem);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .pathways {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .pathway {
+      min-height: 430px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 3vw, 34px);
+      background: var(--paper);
+      box-shadow: 0 12px 40px rgba(22, 32, 42, 0.045);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .pathway:hover {
+      transform: translateY(-4px);
+      border-color: rgba(47, 111, 115, 0.34);
+      box-shadow: 0 22px 60px rgba(22, 32, 42, 0.08);
+    }
+
+    .kicker,
+    .ix {
+      color: var(--accent-dark);
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .pathway h3,
+    .project h3,
+    .pub-title,
+    .timeline-card h3,
+    .skill-card h4,
+    .focus-cell h4 {
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+    }
+
+    .pathway h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.65rem, 3vw, 2.6rem);
+      font-weight: 650;
+      margin-bottom: 14px;
+    }
+
+    .desc {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .tags,
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag,
+    .items span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.48);
+      color: #37424c;
+      font-size: 0.82rem;
+      font-weight: 650;
+      line-height: 1.15;
+    }
+
+    .more {
+      display: inline-flex;
+      color: var(--accent-dark);
+      font-weight: 850;
+      margin-top: 28px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pathways-caption {
+      text-align: center;
+      color: var(--copper);
+      font-family: var(--serif);
+      font-size: 1.28rem;
+      font-style: italic;
+      margin: 28px 0 0;
+      letter-spacing: -0.015em;
+    }
+
+    .about-band {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255, 253, 248, 0.88), rgba(228, 238, 238, 0.55));
+      padding: clamp(26px, 5vw, 48px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(290px, 0.95fr);
+      gap: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-band p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .about-band .lead-text {
+      color: var(--ink);
+      font-size: clamp(1.24rem, 2vw, 1.65rem);
+      line-height: 1.42;
+      letter-spacing: -0.04em;
+      font-weight: 650;
+    }
+
+    .mini-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .fact {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .fact strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--accent-dark);
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.35;
+    }
+
+    .focus-grid,
+    .skills,
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .focus-cell,
+    .skill-card,
+    .timeline-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      padding: 22px;
+    }
+
+    .focus-cell h4,
+    .skill-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .focus-cell p:last-child,
+    .timeline-card p:last-child,
+    .skill-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .focus-cell p:not(.ix),
+    .timeline-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.62;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--paper-strong);
+      padding: 25px;
+      box-shadow: 0 14px 36px rgba(22, 32, 42, 0.045);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-head {
+      display: flex;
+      gap: 14px;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .project h3 {
+      font-size: 1.32rem;
+      margin-bottom: 0;
+    }
+
+    .badge,
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      min-height: 27px;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border: 1px solid rgba(47, 111, 115, 0.2);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.02em;
+    }
+
+    .badge.research,
+    .status.accepted {
+      background: rgba(160, 90, 44, 0.11);
+      color: #7c4321;
+      border-color: rgba(160, 90, 44, 0.22);
+    }
+
+    .summary {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .field {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .lbl {
+      color: var(--faint);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+    }
+
+    .val {
+      color: #303b45;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .stack {
+      font-family: var(--mono);
+      font-size: 0.86rem;
+    }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .repo {
+      color: var(--accent-dark);
+      font-weight: 850;
+      font-size: 0.92rem;
+    }
+
+    a.repo:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .pending {
+      color: var(--faint);
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+
+    .pubs {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pub {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) minmax(140px, auto);
+      gap: 20px;
+      align-items: start;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper-strong);
+    }
+
+    .year {
+      color: var(--accent-dark);
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .pub-title {
+      font-size: 1.12rem;
+      margin-bottom: 6px;
+    }
+
+    .pub-authors,
+    .pub-venue {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .me {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .pub-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .pub-meta a,
+    .inline-link {
+      color: var(--accent-dark);
+      font-weight: 850;
+      border-bottom: 1px solid rgba(31, 78, 85, 0.3);
+    }
+
+    .pub-meta a:hover,
+    .inline-link:hover {
+      border-color: var(--accent-dark);
+    }
+
+    .pubs-foot {
+      color: var(--muted);
+      margin: 18px 0 0;
+    }
+
+    .skill-card h4 {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .num {
+      color: var(--accent-dark);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0;
+    }
+
+    .timeline {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .timeline-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card .date {
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 850;
+      letter-spacing: 0.09em;
+      margin-bottom: 10px;
+    }
+
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(22, 50, 79, 0.96), rgba(31, 78, 85, 0.94));
+      color: #fffdf8;
+      padding: clamp(30px, 5vw, 52px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      box-shadow: 0 28px 80px rgba(22, 50, 79, 0.22);
+    }
+
+    .contact-panel h2 {
+      color: #fffdf8;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      color: rgba(255, 253, 248, 0.78);
+      max-width: 720px;
+      margin-bottom: 0;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .contact-links a {
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      color: #fffdf8;
+      border: 1px solid rgba(255, 253, 248, 0.24);
+      background: rgba(255, 253, 248, 0.08);
+      font-weight: 800;
+      font-size: 0.9rem;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .contact-links a:hover {
+      background: rgba(255, 253, 248, 0.14);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px 44px;
+      color: var(--faint);
+      font-size: 0.86rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      animation: fadeUp 700ms ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { animation: none; }
+      .btn, .pathway, .contact-links a { transition: none; }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .section-head,
+      .about-band,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 640px;
+      }
+
+      .focus-grid,
+      .skills,
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projects,
+      .pathways {
+        grid-template-columns: 1fr;
+      }
+
+      .pathway {
+        min-height: 0;
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .nav-links a {
+        padding-left: 0;
+      }
+
+      main {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .name-mark {
+        font-size: clamp(3.25rem, 18vw, 5.2rem);
+      }
+
+      .focus-grid,
+      .skills,
+      .timeline,
+      .mini-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .project-head,
+      .foot {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .field {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .pub {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .pub-meta {
+        align-items: flex-start;
+      }
+
+      footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Amir-Homayun Hallajian home">
+          <span class="brand-mark">AH</span>
+          <span class="brand-text">Amir-Homayun Hallajian<span class="brand-sub">Computational cognitive science</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="#research">Research</a>
+          <a href="#applied">Applied ML</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#cv">CV</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal" aria-labelledby="hero-title">
+        <div>
+          <p class="role-line">Computational cognitive neuroscience · Applied machine learning</p>
+          <h1 class="name-mark" id="hero-title">Amir-Homayun <span class="em">Hallajian</span></h1>
+          <p class="positioning">
+            I build <span class="accent-word">computational models</span> and data systems for understanding complex human behaviour.
+          </p>
+          <p class="lede">
+            PhD researcher in computational cognitive science at the Donders Institute, Radboud University. I study how people coordinate meaning in social interaction, using behavioural modelling, dual-fMRI, graph analytics, statistical modelling, and machine learning on noisy human data.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#research">Research profile <span class="arrow">→</span></a>
+            <a class="btn btn-secondary" href="#applied">Applied ML portfolio <span class="arrow">→</span></a>
+          </div>
+          <div class="secondary-links" aria-label="Profile links">
+            <a href="#cv">CV highlights <span class="arrow">↓</span></a>
+            <a href="#publications">Publications <span class="arrow">↓</span></a>
+            <a href="https://github.com/AmirHomayunHallajian" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+            <a href="https://orcid.org/0000-0001-5848-7841" target="_blank" rel="noopener">ORCID <span class="arrow">↗</span></a>
+            <a href="https://scholar.google.com/citations?user=ySVOK0cAAAAJ&hl=en" target="_blank" rel="noopener">Scholar <span class="arrow">↗</span></a>
+            <a href="https://www.linkedin.com/in/AH-Hallajian" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+            <a href="mailto:amirhomayun.hallajian@donders.ru.nl">Email <span class="arrow">↗</span></a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Profile summary">
+          <p class="card-kicker">Current profile</p>
+          <ul class="identity-list">
+            <li>
+              <strong>PhD Researcher · Donders Institute</strong>
+              <span>Cognitive neuroscience and computational cognitive science at Radboud University, Nijmegen.</span>
+            </li>
+            <li>
+              <strong>Core scientific question</strong>
+              <span>How humans coordinate shared meaning in social interaction when signals, concepts, and strategies are still emerging.</span>
+            </li>
+            <li>
+              <strong>Computational approach</strong>
+              <span>Behavioural sequence modelling, dual-fMRI analysis, representational similarity, intrinsic dimensionality, graph analytics, and statistical modelling.</span>
+            </li>
+            <li>
+              <strong>Applied translation</strong>
+              <span>Reproducible Python/R/SQL pipelines, applied ML prototypes, RAG systems, model-serving demos, and clinical operations analytics.</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" id="pathways" aria-labelledby="pathways-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Two pathways, one technical identity</p>
+            <h2 id="pathways-title">Making complex human data interpretable.</h2>
+          </div>
+          <p class="section-intro">
+            My work starts from difficult scientific problems: social interaction, behavioural variability, neuroimaging data, and the formation of shared meaning. The same methods transfer naturally to applied ML and analytics settings where human, clinical, and operational data are noisy, structured, and consequential.
+          </p>
+        </div>
+
+        <div class="pathways reveal">
+          <a href="#research" class="pathway">
+            <div>
+              <p class="kicker">01 / Research & Academia</p>
+              <h3>Computational cognitive neuroscience</h3>
+              <p class="desc">
+                Behavioural modelling and dual-fMRI work on how humans coordinate meaning in social interaction, with representational, graph-theoretic, and statistical analyses.
+              </p>
+              <div class="tags">
+                <span class="tag">Human communication</span>
+                <span class="tag">Shared meaning</span>
+                <span class="tag">Tacit Communication Game</span>
+                <span class="tag">Dual-fMRI</span>
+                <span class="tag">RSA</span>
+                <span class="tag">Intrinsic dimensionality</span>
+                <span class="tag">Graph analysis</span>
+                <span class="tag">Mixed-effects models</span>
+                <span class="tag">Permutation testing</span>
+              </div>
+            </div>
+            <span class="more">Explore research <span class="arrow">→</span></span>
+          </a>
+
+          <a href="#applied" class="pathway">
+            <div>
+              <p class="kicker">02 / Applied ML & Data Science</p>
+              <h3>Computational systems for noisy human data</h3>
+              <p class="desc">
+                End-to-end Python, R, and SQL pipelines, ML deployment demos, BI for clinical operations, and RAG over scientific literature, built with research-grade attention to reproducibility and interpretation.
+              </p>
+              <div class="tags">
+                <span class="tag">Python · R · SQL</span>
+                <span class="tag">PyTorch · Transformers</span>
+                <span class="tag">FastAPI · Docker</span>
+                <span class="tag">RAG · GenAI</span>
+                <span class="tag">Power BI · DAX</span>
+                <span class="tag">Clinical analytics</span>
+                <span class="tag">Reproducible pipelines</span>
+                <span class="tag">Streamlit</span>
+              </div>
+            </div>
+            <span class="more">Explore applied work <span class="arrow">→</span></span>
+          </a>
+        </div>
+        <p class="pathways-caption reveal">— research-led computational work, applied where human data are hard to interpret —</p>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="about-band reveal">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title" style="margin-bottom: 22px;">Computational tools for social behaviour, cognition, and clinical data.</h2>
+            <p class="lead-text">
+              I work at the intersection of cognitive neuroscience, social interaction, behavioural modelling, and machine learning.
+            </p>
+          </div>
+          <div>
+            <p>
+              My doctoral research focuses on how people establish shared meaning during interaction, especially in settings where communication cannot rely on familiar words or fixed symbols. I analyse behavioural sequences, trial-wise neural responses, dyadic coordination, and evolving representational structure using reproducible computational pipelines.
+              <br><br>
+              This technical profile also supports applied data science: cleaning and modelling noisy human data, building interpretable ML workflows, designing source-grounded RAG tools, and translating clinical or operational questions into testable analyses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="research-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Research / Academia</p>
+            <h2 id="research-title">Shared meaning as a computational problem.</h2>
+          </div>
+          <p class="section-intro">
+            I study communication as an interactional process: people do not simply transmit pre-existing meanings; they jointly build, refine, and stabilize a usable space of possibilities. My work uses behavioural modelling, dual-fMRI, graph methods, and statistical inference to make that process measurable.
+          </p>
+        </div>
+
+        <div class="focus-grid reveal">
+          <div class="focus-cell">
+            <p class="ix">01 · Behaviour</p>
+            <h4>Tacit Communication Game</h4>
+            <p>Analysis of an experimental semiotic paradigm where dyads develop novel signals and strategies to coordinate without ordinary language.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">02 · Brain</p>
+            <h4>Dual-fMRI</h4>
+            <p>Trial-wise neuroimaging analyses of interacting partners, focused on planning, observation, and the neural structure of communication.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">03 · Representation</p>
+            <h4>Representational similarity</h4>
+            <p>Representational similarity analysis across behavioural and neural data to quantify alignment and structure during coordination.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">04 · Complexity</p>
+            <h4>Intrinsic dimensionality</h4>
+            <p>Participation-ratio and related analyses for estimating how many effective dimensions organize behavioural and neural state spaces over time.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">05 · Structure</p>
+            <h4>Graph and spectral methods</h4>
+            <p>Network analyses of trial-level similarity, Laplacian spectra, null models, and graph structure in emergent communication systems.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">06 · Inference</p>
+            <h4>Statistical modelling</h4>
+            <p>Mixed-effects models, GAMs, Bayesian models, permutation testing, FDR/FWER correction, and meta-analytic synthesis for behavioural and neuroimaging data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="applied" aria-labelledby="applied-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Applied ML / Data Science</p>
+            <h2 id="applied-title">Applied systems built from research habits.</h2>
+          </div>
+          <p class="section-intro">
+            My applied work is not a separate identity. It grows out of the same technical demands as my research: noisy data, weak labels, multimodal measurements, statistical uncertainty, reproducible pipelines, and the need to explain what a model is doing.
+          </p>
+        </div>
+
+        <div class="focus-grid reveal">
+          <div class="focus-cell">
+            <p class="ix">01 · Pipelines</p>
+            <h4>End-to-end data workflows</h4>
+            <p>Python, R, and SQL workflows for cleaning, feature engineering, model training, evaluation, reporting, and automation.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">02 · Modelling</p>
+            <h4>Sequence and tabular models</h4>
+            <p>Transformer-based behavioural sequence modelling, scikit-learn prototypes, cross-validation, and interpretable model evaluation.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">03 · Deployment</p>
+            <h4>FastAPI and Docker</h4>
+            <p>Model-serving demonstrations with REST APIs, Pydantic schemas, Docker Compose, logging, monitoring endpoints, and tests.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">04 · GenAI</p>
+            <h4>RAG over scientific PDFs</h4>
+            <p>PDF ingestion, chunking, embeddings, vector search, retrieval-first interfaces, and source-grounded answers for technical literature.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">05 · BI</p>
+            <h4>Clinical operations dashboards</h4>
+            <p>Power BI, DAX, Power Query, star-schema modelling, KPI design, cohort and funnel analysis, and cycle-time analytics.</p>
+          </div>
+          <div class="focus-cell">
+            <p class="ix">06 · Compute</p>
+            <h4>HPC and reproducibility</h4>
+            <p>SLURM workflows, version-controlled analyses, schema validation, publication-ready reporting, and readable analytical code.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Featured work</p>
+            <h2 id="projects-title">Projects across research and applied ML.</h2>
+          </div>
+          <p class="section-intro">
+            These projects are intentionally separated by context. Research projects reflect doctoral and collaborative scientific work. Applied projects are portfolio demonstrations, often using synthetic data, designed to show practical engineering and analytics capability without overstating deployment claims.
+          </p>
+        </div>
+
+        <div class="projects reveal">
+          <article class="project">
+            <div class="project-head">
+              <h3>Tacit Communication Game and dual-fMRI</h3>
+              <span class="badge research">Research</span>
+            </div>
+            <p class="summary">Behavioural and neural analysis of how dyads invent shared signals to coordinate under uncertainty.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Reproducible analysis pipelines for behavioural and dual-fMRI data, including feature engineering, trial-wise modelling, permutation/FDR correction, and publication-ready reporting.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · R · SPM · AFNI · SLURM · mixed-effects models</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Shared meaning is a central problem in cognitive science; dyadic behavioural and neural data make it measurable.</span></div>
+            <div class="foot"><span class="repo">Ongoing doctoral work</span><span class="pending">Donders Institute</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>Hierarchical Transformer for behavioural sequences</h3>
+              <span class="badge research">Research</span>
+            </div>
+            <p class="summary">A custom Transformer-based model for behavioural sequence data from communication experiments.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">A hierarchical Transformer trained on roughly 100K behavioural sequences, using representation learning and model-derived embeddings for downstream analyses.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · PyTorch · PyTorch Lightning · Transformers</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Behavioural data are nested across moves, trials, and dyads; sequence models can help recover structure that is not visible in aggregate summaries.</span></div>
+            <div class="foot"><span class="repo">Research code</span><span class="pending">By request / project dependent</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>Graph analytics of emergent communication</h3>
+              <span class="badge research">Research</span>
+            </div>
+            <p class="summary">Graph and spectral analysis of how communicative structure stabilizes across interaction.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Graph-analytics pipelines over 69 dyads × 94 trials, including Laplacian spectra, null-model simulations, intrinsic-dimensionality estimation, and SLURM parallelisation.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · NetworkX · NumPy · SciPy · SLURM</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Convention formation is structural; graph methods expose how interaction histories become organized over time.</span></div>
+            <div class="foot"><span class="repo">CogSci 2026 full paper/poster</span><span class="pending">Accepted</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>EEG, SSVEP, and brain-to-brain prototypes</h3>
+              <span class="badge research">Research</span>
+            </div>
+            <p class="summary">Real-time neurotechnology prototypes developed in clinical-neuroscience research settings.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Signal-processing, decoding, synchronisation, and stimulation-control code for tACS + EEG/SSVEP workflows and brain-to-brain interface prototypes.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · MATLAB · EEG · SSVEP · signal processing</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Closed-loop and dyadic neurotechnology prototypes turn neural signals into testable interaction variables.</span></div>
+            <div class="foot"><span class="repo">Collaborative prototype work</span><span class="pending">2020–2023</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>ML-Deployment-Lab</h3>
+              <span class="badge">Applied · Portfolio</span>
+            </div>
+            <p class="summary">End-to-end ML deployment demonstration on synthetic clinical-trial site-delay data.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Data generation, preprocessing, RandomForest training, artifact persistence, REST API serving, batch prediction, Docker/Compose deployment, logging, monitoring endpoint, and tests.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · scikit-learn · FastAPI · Docker · pytest</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Shows the path from model training to a running inference endpoint on controlled synthetic data.</span></div>
+            <div class="foot"><a class="repo" href="https://github.com/AmirHomayunHallajian/ML-Deployment-Lab" target="_blank" rel="noopener">View repo <span class="arrow">↗</span></a><span class="pending">Public</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>NeuroPaperRAG</h3>
+              <span class="badge">Applied · Portfolio</span>
+            </div>
+            <p class="summary">Source-grounded RAG app for querying local neuroscience and psychology PDFs.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">PDF ingestion, page-level metadata, chunking, embeddings, ChromaDB vector storage, semantic retrieval, Streamlit UI, optional generation, Docker support, and retrieval-only fallback.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · ChromaDB · SentenceTransformers · Streamlit · Docker</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Demonstrates RAG patterns where scientific source grounding and citation fidelity matter.</span></div>
+            <div class="foot"><a class="repo" href="https://github.com/AmirHomayunHallajian/NeuroPaperRAG" target="_blank" rel="noopener">View repo <span class="arrow">↗</span></a><span class="pending">Public</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>ClinicalTrialOpsBI</h3>
+              <span class="badge">Applied · Synthetic data</span>
+            </div>
+            <p class="summary">Clinical-trial operations BI project using synthetic recruitment, site activation, query, and document-readiness data.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Star-schema modelling and dashboard pages for executive overview, site start-up, query management, and TMF/document readiness.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Power BI · DAX · Power Query · SQL</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Translates trial-operations questions into interpretable KPIs and analytical views; synthetic data only.</span></div>
+            <div class="foot"><a class="repo" href="https://github.com/AmirHomayunHallajian/ClinicalTrialOpsBI" target="_blank" rel="noopener">View repo <span class="arrow">↗</span></a><span class="pending">Demonstration</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>SQL-Analytics-Casebook</h3>
+              <span class="badge">Applied · Portfolio</span>
+            </div>
+            <p class="summary">Practical SQL casebook for clinical, product, and operations analytics questions.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Schema design, KPI queries, window functions, cohort analysis, retention and funnel analytics, query aging, missing-document analysis, site ranking, and cycle-time analysis.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">SQL · analytics engineering patterns</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Shows analytical SQL fluency on the types of questions common in healthcare and operations work.</span></div>
+            <div class="foot"><a class="repo" href="https://github.com/AmirHomayunHallajian/SQL-Analytics-Casebook" target="_blank" rel="noopener">View repo <span class="arrow">↗</span></a><span class="pending">Public</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>TrialDelayPredictor</h3>
+              <span class="badge">Applied · Synthetic data</span>
+            </div>
+            <p class="summary">Predictive modelling demo for site activation and recruitment delays from synthetic clinical operations data.</p>
+            <div class="field"><span class="lbl">Built</span><span class="val">Synthetic-data workflow, feature engineering, model training and evaluation, and interpretable reporting for timing-related operational prediction.</span></div>
+            <div class="field"><span class="lbl">Stack</span><span class="val stack">Python · pandas · scikit-learn · Streamlit</span></div>
+            <div class="field"><span class="lbl">Why</span><span class="val">Shows how modelling, calibration, and interpretability habits from research can transfer to noisy operational data.</span></div>
+            <div class="foot"><a class="repo" href="https://github.com/AmirHomayunHallajian/TrialDelayPredictor" target="_blank" rel="noopener">View repo <span class="arrow">↗</span></a><span class="pending">Demonstration</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="publications" aria-labelledby="publications-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Selected publications and academic work</p>
+            <h2 id="publications-title">Representative work, not a full CV dump.</h2>
+          </div>
+          <p class="section-intro">
+            Selected work across computational cognitive science, clinical neuroscience, neurostimulation, and meta-analysis. For the full publication list, see Google Scholar or ORCID.
+          </p>
+        </div>
+
+        <div class="pubs reveal">
+          <article class="pub">
+            <div class="year">2026</div>
+            <div class="pub-body">
+              <h3 class="pub-title">CogSci 2026 full paper/poster on representational complexity in referential communication</h3>
+              <p class="pub-authors"><span class="me">Hallajian, A.-H.</span>, and colleagues</p>
+              <p class="pub-venue">Proceedings of the Annual Meeting of the Cognitive Science Society</p>
+            </div>
+            <div class="pub-meta"><span class="status accepted">Accepted</span></div>
+          </article>
+
+          <article class="pub">
+            <div class="year">2025</div>
+            <div class="pub-body">
+              <h3 class="pub-title">CogSci 2025 selected talk/proceedings on shared context generation during referential communication</h3>
+              <p class="pub-authors"><span class="me">Hallajian, A.-H.</span>, and colleagues</p>
+              <p class="pub-venue">Proceedings of the Annual Meeting of the Cognitive Science Society</p>
+            </div>
+            <div class="pub-meta"><span class="status accepted">Selected talk</span></div>
+          </article>
+
+          <article class="pub">
+            <div class="year">2026</div>
+            <div class="pub-body">
+              <h3 class="pub-title">Transcranial electrical stimulation for the treatment of obsessive-compulsive disorder: a triple meta-analysis</h3>
+              <p class="pub-authors">Salehinejad, M. A., <span class="me">Hallajian, A.-H.</span>, and colleagues</p>
+              <p class="pub-venue">Nature Mental Health</p>
+            </div>
+            <div class="pub-meta"><span class="status">Meta-analysis</span></div>
+          </article>
+
+          <article class="pub">
+            <div class="year">2024</div>
+            <div class="pub-body">
+              <h3 class="pub-title">Neurocognitive effects of 3 mA prefrontal electrical stimulation in schizophrenia</h3>
+              <p class="pub-authors"><span class="me">Hallajian, A.-H.</span>, Sharifi, K., Rostami, R., Saeed, F., Mokarian Rajabi, S., Zangenehnia, N., and colleagues</p>
+              <p class="pub-venue">PLOS ONE</p>
+            </div>
+            <div class="pub-meta"><span class="status">Protocol</span></div>
+          </article>
+
+          <article class="pub">
+            <div class="year">2024</div>
+            <div class="pub-body">
+              <h3 class="pub-title">Targeting the prefrontal-supplementary motor network in OCD with intensified electrical stimulation</h3>
+              <p class="pub-authors">Alizadehgoradel, J., <span class="me">Hallajian, A.-H.</span>, and colleagues</p>
+              <p class="pub-venue">Translational Psychiatry</p>
+            </div>
+            <div class="pub-meta"><span class="status">Clinical neuroscience</span></div>
+          </article>
+
+          <article class="pub">
+            <div class="year">2022</div>
+            <div class="pub-body">
+              <h3 class="pub-title">Temporoparietal junction and implicit mentalizing in autism: a theta-burst stimulation study</h3>
+              <p class="pub-authors"><span class="me">Hallajian, A.-H.</span>, Dehghani-Arani, F., Rostami, R., and colleagues</p>
+              <p class="pub-venue">Journal of Cognitive Psychology</p>
+            </div>
+            <div class="pub-meta"><span class="status">Cognitive neuroscience</span></div>
+          </article>
+        </div>
+
+        <p class="pubs-foot">
+          Full list: <a class="inline-link" href="https://scholar.google.com/citations?user=ySVOK0cAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a class="inline-link" href="https://orcid.org/0000-0001-5848-7841" target="_blank" rel="noopener">ORCID</a>
+        </p>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Technical skills</p>
+            <h2 id="skills-title">Grouped by how they are used.</h2>
+          </div>
+          <p class="section-intro">
+            A compact view of the methods and tools I use across research, analysis, modelling, deployment, and reporting.
+          </p>
+        </div>
+
+        <div class="skills reveal">
+          <div class="skill-card"><h4><span class="num">01</span> Programming</h4><div class="items"><span>Python</span><span>R</span><span>SQL</span><span>Bash</span><span>MATLAB</span><span>C#</span><span>Git / GitHub</span><span>Linux</span></div></div>
+          <div class="skill-card"><h4><span class="num">02</span> Machine Learning</h4><div class="items"><span>scikit-learn</span><span>PyTorch</span><span>PyTorch Lightning</span><span>Transformers</span><span>Hugging Face</span></div></div>
+          <div class="skill-card"><h4><span class="num">03</span> Statistics</h4><div class="items"><span>Mixed-effects models</span><span>GAMs</span><span>Bayesian models</span><span>Stan / brms</span><span>Permutation testing</span><span>FDR / FWER</span><span>Meta-analysis</span></div></div>
+          <div class="skill-card"><h4><span class="num">04</span> Data & Deployment</h4><div class="items"><span>FastAPI</span><span>REST APIs</span><span>Pydantic</span><span>Docker</span><span>Docker Compose</span><span>pytest</span><span>Streamlit</span></div></div>
+          <div class="skill-card"><h4><span class="num">05</span> GenAI / RAG</h4><div class="items"><span>ChromaDB</span><span>SentenceTransformers</span><span>Semantic search</span><span>PDF ingestion</span><span>OpenAI API</span></div></div>
+          <div class="skill-card"><h4><span class="num">06</span> BI / Analytics</h4><div class="items"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Star schema</span><span>KPI design</span><span>Cohort analysis</span><span>Funnel analysis</span><span>Cycle-time analysis</span></div></div>
+          <div class="skill-card"><h4><span class="num">07</span> Neuroscience</h4><div class="items"><span>EEG / fMRI</span><span>SPM</span><span>AFNI</span><span>FSL</span><span>FieldTrip</span><span>EEGLAB</span><span>Psychtoolbox</span><span>tES / TMS</span></div></div>
+          <div class="skill-card"><h4><span class="num">08</span> Data contexts</h4><div class="items"><span>Behavioural data</span><span>Clinical data</span><span>Healthcare analytics</span><span>Graph analytics</span><span>Time series</span><span>HPC / SLURM</span><span>Reproducible reporting</span></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="cv" aria-labelledby="cv-title">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">CV highlights</p>
+            <h2 id="cv-title">Research training with applied technical range.</h2>
+          </div>
+          <p class="section-intro">
+            This section keeps the CV readable on the website. Full academic or industry CVs can be shared directly when useful for collaborations, postdoc applications, consulting, or data-science roles.
+          </p>
+        </div>
+
+        <div class="timeline reveal">
+          <article class="timeline-card">
+            <p class="date">Mar 2024 – present</p>
+            <h3>PhD Researcher, Computational Cognitive Science</h3>
+            <p>Donders Institute, Radboud University, Nijmegen. Thesis focus: representational alignment, dual-fMRI, and computational models of referential communication.</p>
+          </article>
+          <article class="timeline-card">
+            <p class="date">Dec 2020 – Dec 2023</p>
+            <h3>Graduate Researcher / Data Analyst</h3>
+            <p>Convergent Technologies Research Center, Tehran. EEG/fMRI, clinical neuroscience, mixed-effects and Bayesian modelling, meta-analysis, and real-time neurotechnology prototypes.</p>
+          </article>
+          <article class="timeline-card">
+            <p class="date">Jul 2019 – Aug 2021</p>
+            <h3>Operations Manager & Clinical Neurotechnician</h3>
+            <p>Atieh Clinical Neuroscience Center, Tehran. Clinical workflow coordination, QC protocols, SOPs, EEG assessments, and stimulation-device readiness.</p>
+          </article>
+          <article class="timeline-card">
+            <p class="date">2024 – present</p>
+            <h3>PhD, Cognitive Neuroscience</h3>
+            <p>Donders Institute, Radboud University. Focused on shared meaning, social interaction, computational modelling, and dual-fMRI.</p>
+          </article>
+          <article class="timeline-card">
+            <p class="date">2018 – 2021</p>
+            <h3>MSc, Clinical Psychology</h3>
+            <p>University of Tehran. Summa cum laude, GPA 4.0/4.0. Thesis on right TPJ and implicit mentalizing in autism using theta-burst stimulation.</p>
+          </article>
+          <article class="timeline-card">
+            <p class="date">2013 – 2017</p>
+            <h3>BSc, Biomedical Engineering / Bioelectric</h3>
+            <p>University of Isfahan. Thesis on BCI for neurofeedback in children with autism. Best Undergraduate Dissertation in Engineering.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel reveal">
+          <div>
+            <p class="eyebrow" style="color: rgba(255,253,248,.7);">Contact</p>
+            <h2 id="contact-title">For research collaboration, postdoc conversations, consulting, or applied ML work.</h2>
+            <p>
+              I am based in Nijmegen, the Netherlands. The best starting point is email, with a short note about the project, dataset, collaboration, or role.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:amirhomayun.hallajian@donders.ru.nl">Email</a>
+            <a href="https://github.com/AmirHomayunHallajian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/AH-Hallajian" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://orcid.org/0000-0001-5848-7841" target="_blank" rel="noopener">ORCID</a>
+            <a href="https://scholar.google.com/citations?user=ySVOK0cAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year">2026</span> Amir-Homayun Hallajian</span>
+      <span>Computational models and data systems for complex human behaviour.</span>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
